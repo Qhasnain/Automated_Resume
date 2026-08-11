@@ -47,11 +47,11 @@ def login(user_in: UserLogin, db: Session = Depends(get_db)):
 def google_auth(data: GoogleAuthRequest, db: Session = Depends(get_db)):
     """Authenticate with Google. Verifies the Google ID token and creates/logs in the user."""
     try:
-        from jose import jwt
+        import jwt
         # Decode the Google JWT token (we verify the signature using Google's public keys)
         # For simplicity, we decode without full verification here and check the issuer
         # In production, use google-auth library for full verification
-        unverified = jwt.get_unverified_claims(data.credential)
+        unverified = jwt.decode(data.credential, options={"verify_signature": False})
         
         email = unverified.get("email")
         name = unverified.get("name", "")
