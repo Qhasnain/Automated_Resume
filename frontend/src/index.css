@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #F8FAFC;
+    --color-surface: #FFFFFF;
+    --color-sidebar: #FFFFFF;
+    --color-card: #FFFFFF;
+    
+    --color-primary: #2563EB;
+    --color-primary-hover: #1D4ED8;
+    
+    --color-text: #0F172A;
+    --color-text-secondary: #64748B;
+    --color-text-muted: #94A3B8;
+    
+    --color-border: #E2E8F0;
+    --color-border-light: #F1F5F9;
+  }
+
+  .dark {
+    --color-bg: #0F0B1F;
+    --color-surface: #17132D;
+    --color-sidebar: #1C1835;
+    --color-card: #231E3F;
+    
+    --color-primary: #7C5CFF;
+    --color-primary-hover: #A78BFA;
+    
+    --color-text: #F5F3FF;
+    --color-text-secondary: #B7B3D1;
+    --color-text-muted: #645C8A;
+    
+    --color-border: #37305E;
+    --color-border-light: #2C2552;
+  }
+
+  body {
+    @apply bg-background text-text-primary font-sans antialiased overflow-x-hidden transition-colors duration-300;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  ::selection {
+    @apply text-primary;
+    background-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in srgb, var(--color-text-secondary) 30%, transparent);
+  }
+}
+
+@layer components {
+  /* Glass Navbar */
+  .glass-nav {
+    @apply bg-white/80 backdrop-blur-xl border-b border-border shadow-nav;
+  }
+
+  /* Glass Panel (legacy support) */
+  .glass-panel {
+    @apply bg-white border border-border rounded-2xl shadow-card;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white border border-border rounded-2xl shadow-card transition-all duration-300;
+  }
+  .card:hover {
+    @apply shadow-card-hover -translate-y-1;
+  }
+
+  /* Primary Button */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-hover text-white font-semibold py-2.5 px-6 rounded-xl transition-all duration-300 shadow-btn-primary hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 inline-flex items-center justify-center gap-2;
+  }
+
+  /* Secondary Button */
+  .btn-secondary {
+    @apply bg-background border border-border text-text-primary font-semibold py-2.5 px-6 rounded-xl transition-all duration-300 hover:text-primary inline-flex items-center justify-center gap-2;
+  }
+  .btn-secondary:hover {
+    border-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+    background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  }
+
+  /* Ghost Button */
+  .btn-ghost {
+    @apply bg-transparent text-text-secondary hover:text-primary hover:bg-primary-50 font-medium py-2 px-4 rounded-lg transition-all duration-200 inline-flex items-center justify-center gap-2;
+  }
+
+  /* Danger Button */
+  .btn-danger {
+    @apply bg-danger/10 text-danger hover:bg-danger hover:text-white font-semibold py-2.5 px-6 rounded-xl transition-all duration-300 inline-flex items-center justify-center gap-2;
+  }
+
+  /* Input */
+  .input {
+    @apply w-full bg-background-surface border border-border rounded-xl px-4 py-3 text-text-primary focus:outline-none transition-all duration-200 placeholder:text-text-muted;
+  }
+  .input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 50%, transparent);
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  .badge-primary {
+    @apply badge bg-primary-50 text-primary;
+  }
+  .badge-success {
+    @apply badge bg-green-50 text-success;
+  }
+  .badge-warning {
+    @apply badge bg-amber-50 text-warning;
+  }
+  .badge-danger {
+    @apply badge bg-red-50 text-danger;
+  }
+
+  /* Section */
+  .section {
+    @apply py-20 px-6 max-w-7xl mx-auto;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-text-primary mb-4;
+  }
+  .section-subtitle {
+    @apply text-lg text-text-secondary max-w-2xl;
+  }
+
+  .skeleton {
+    @apply rounded-lg animate-pulse;
+    background-color: color-mix(in srgb, var(--color-border) 50%, transparent);
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+    size: auto;
+  }
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
