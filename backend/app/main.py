@@ -22,9 +22,7 @@ app.add_middleware(
 )
 
 # Create all tables on startup
-@app.on_event("startup")
-def on_startup():
-    Base.metadata.create_all(bind=engine)
+
 
 app.include_router(auth_router)
 app.include_router(resume_router)
