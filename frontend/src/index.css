@@ -21,20 +21,20 @@
   }
 
   .dark {
-    --color-bg: #0F0B1F;
-    --color-surface: #17132D;
-    --color-sidebar: #1C1835;
-    --color-card: #231E3F;
+    --color-bg: #0F0A1F;
+    --color-surface: #17102B;
+    --color-sidebar: #120B24;
+    --color-card: #1C1433;
     
     --color-primary: #7C5CFF;
-    --color-primary-hover: #A78BFA;
+    --color-primary-hover: #9B7BFF;
     
-    --color-text: #F5F3FF;
-    --color-text-secondary: #B7B3D1;
+    --color-text: #F8F7FF;
+    --color-text-secondary: #B8B0CC;
     --color-text-muted: #645C8A;
     
-    --color-border: #37305E;
-    --color-border-light: #2C2552;
+    --color-border: rgba(255, 255, 255, 0.10);
+    --color-border-light: rgba(255, 255, 255, 0.05);
   }
 
   body {

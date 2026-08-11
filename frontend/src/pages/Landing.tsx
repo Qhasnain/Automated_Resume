@@ -79,7 +79,6 @@ export default function Landing() {
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center space-x-8">
               <a href="#features" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">Features</a>
-              <a href="#pricing" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">Pricing</a>
             </div>
 
             <div className="hidden md:flex items-center space-x-4">
@@ -109,7 +108,6 @@ export default function Landing() {
             >
               <div className="px-4 pt-2 pb-4 space-y-3">
                 <a href="#features" className="block text-base font-medium text-slate-600">Features</a>
-                <a href="#pricing" className="block text-base font-medium text-slate-600">Pricing</a>
                 <div className="pt-4 border-t border-slate-100 flex flex-col space-y-2">
                   <Link to="/auth?mode=login" className="block text-center text-base font-medium text-slate-600 py-2">Login</Link>
                   <Link to="/auth?mode=register" className="block text-center text-base font-medium bg-blue-600 text-white rounded-lg py-2">Get Started Free</Link>
@@ -433,107 +431,6 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* 8. TESTIMONIALS */}
-      <section className="py-24 bg-slate-50 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">Loved by job seekers</h2>
-            <p className="text-lg text-slate-500">Join thousands who landed their dream jobs using ResumeForge AI.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: "Sarah Jenkins", role: "Product Manager", company: "TechCorp", quote: "I was struggling to get interviews for months. Used this AI builder, updated my resume in 20 mins, and got 3 interviews the next week." },
-              { name: "David Chen", role: "Frontend Developer", company: "StartupX", quote: "The ATS optimization feature is a game changer. It perfectly formatted my diverse experience into a clean, professional template." },
-              { name: "Emily Rodriguez", role: "Marketing Director", company: "GlobalMedia", quote: "The AI suggestions were incredibly accurate. It helped me rephrase my achievements to sound significantly more impactful." }
-            ].map((testimonial, i) => (
-              <div key={i} className="card bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
-                <div>
-                  <div className="flex text-yellow-400 mb-4">
-                    {[...Array(5)].map((_, j) => <Star key={j} className="w-5 h-5 fill-current" />)}
-                  </div>
-                  <p className="text-slate-600 mb-6 italic">"{testimonial.quote}"</p>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-lg">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-900 text-sm">{testimonial.name}</h4>
-                    <p className="text-xs text-slate-500">{testimonial.role} at {testimonial.company}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 9. PRICING */}
-      <section id="pricing" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">Simple, transparent pricing</h2>
-            <p className="text-lg text-slate-500">Choose the plan that fits your career goals.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Free */}
-            <div className="card bg-white rounded-2xl border border-slate-200 p-8 flex flex-col">
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Basic</h3>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-slate-900">$0</span>
-                <span className="text-slate-500">/forever</span>
-              </div>
-              <p className="text-slate-500 text-sm mb-6">Perfect for trying out our basic features.</p>
-              <ul className="space-y-4 mb-8 flex-1">
-                <li className="flex items-center text-sm text-slate-700"><CheckCircle2 className="w-5 h-5 text-blue-500 mr-3" /> 1 Resume</li>
-                <li className="flex items-center text-sm text-slate-700"><CheckCircle2 className="w-5 h-5 text-blue-500 mr-3" /> Basic Templates</li>
-                <li className="flex items-center text-sm text-slate-700"><CheckCircle2 className="w-5 h-5 text-blue-500 mr-3" /> PDF Export</li>
-                <li className="flex items-center text-sm text-slate-400"><X className="w-5 h-5 mr-3" /> AI Writing Assistant</li>
-              </ul>
-              <Link to="/register" className="btn-secondary w-full py-3 text-center rounded-lg border border-slate-200 font-semibold text-slate-700 hover:bg-slate-50 transition-colors">Get Started</Link>
-            </div>
-
-            {/* Pro */}
-            <div className="card bg-white rounded-2xl border-2 border-blue-600 p-8 flex flex-col relative shadow-xl transform md:-translate-y-4">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
-                Most Popular
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Pro</h3>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-slate-900">$12</span>
-                <span className="text-slate-500">/month</span>
-              </div>
-              <p className="text-slate-500 text-sm mb-6">Everything you need to land interviews fast.</p>
-              <ul className="space-y-4 mb-8 flex-1">
-                <li className="flex items-center text-sm text-slate-700"><CheckCircle2 className="w-5 h-5 text-blue-500 mr-3" /> Unlimited Resumes</li>
-                <li className="flex items-center text-sm text-slate-700"><CheckCircle2 className="w-5 h-5 text-blue-500 mr-3" /> Premium Templates</li>
-                <li className="flex items-center text-sm text-slate-700 font-semibold"><CheckCircle2 className="w-5 h-5 text-blue-500 mr-3" /> Full AI Writing Assistant</li>
-                <li className="flex items-center text-sm text-slate-700"><CheckCircle2 className="w-5 h-5 text-blue-500 mr-3" /> ATS Score Checking</li>
-              </ul>
-              <Link to="/register" className="btn-primary w-full py-3 text-center rounded-lg bg-blue-600 font-semibold text-white hover:bg-blue-700 transition-colors shadow-md">Upgrade to Pro</Link>
-            </div>
-
-            {/* Enterprise / Lifetime */}
-            <div className="card bg-white rounded-2xl border border-slate-200 p-8 flex flex-col">
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Lifetime</h3>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-slate-900">$29</span>
-                <span className="text-slate-500">/once</span>
-              </div>
-              <p className="text-slate-500 text-sm mb-6">Pay once, use forever. Best value.</p>
-              <ul className="space-y-4 mb-8 flex-1">
-                <li className="flex items-center text-sm text-slate-700"><CheckCircle2 className="w-5 h-5 text-blue-500 mr-3" /> Everything in Pro</li>
-                <li className="flex items-center text-sm text-slate-700"><CheckCircle2 className="w-5 h-5 text-blue-500 mr-3" /> Cover Letter Builder</li>
-                <li className="flex items-center text-sm text-slate-700"><CheckCircle2 className="w-5 h-5 text-blue-500 mr-3" /> Priority Support</li>
-                <li className="flex items-center text-sm text-slate-700"><CheckCircle2 className="w-5 h-5 text-blue-500 mr-3" /> Early Access Features</li>
-              </ul>
-              <Link to="/register" className="btn-secondary w-full py-3 text-center rounded-lg border border-slate-200 font-semibold text-slate-700 hover:bg-slate-50 transition-colors">Get Lifetime</Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 10. FAQ */}
       <section className="py-24 bg-slate-50 border-t border-slate-100">
@@ -604,7 +501,6 @@ export default function Landing() {
               <h4 className="font-semibold text-slate-900 mb-4">Product</h4>
               <ul className="space-y-3">
                 <li><a href="#features" className="text-slate-500 hover:text-slate-900 text-sm transition-colors">Features</a></li>
-                <li><a href="#pricing" className="text-slate-500 hover:text-slate-900 text-sm transition-colors">Pricing</a></li>
                 <li><a href="#" className="text-slate-500 hover:text-slate-900 text-sm transition-colors">Cover Letter Builder</a></li>
               </ul>
             </div>
